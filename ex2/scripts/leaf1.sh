@@ -20,12 +20,12 @@ net add interface peerlink.4094 clag args --initDelay 100
 
 # OSPF config
 net add ospf passive-interface default
-net add ospf router-id 172.16.12.11
+net add ospf router-id 172.16.12.21
 
-net add ospf network 172.16.12.11/32 area 0
-net add ospf network 10.1.0.1/24 area 0
-net add ospf network 10.0.1.2/30 area 0
-net add ospf network 10.0.1.6/30 area 0
+net add ospf area 1 stub
+net add ospf network 10.1.0.1/24 area 1
+net add ospf network 10.0.1.2/30 area 1
+net add ospf network 10.0.1.6/30 area 1
 
 net del ospf passive-interface swp2
 net del ospf passive-interface swp3

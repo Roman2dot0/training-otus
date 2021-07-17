@@ -8,9 +8,9 @@ net add interface swp2 ip address 10.0.1.9/30
 net add ospf passive-interface default
 net add ospf router-id 172.16.12.13
 
-net add ospf network 172.16.12.13/32 area 0
+net add ospf area 4 stub no-summary
 net add ospf network 10.0.0.3/24 area 0
-net add ospf network 10.0.1.9/30 area 0
+net add ospf network 10.0.1.9/30 area 4
 
 net del ospf passive-interface swp1
 net del ospf passive-interface swp2
