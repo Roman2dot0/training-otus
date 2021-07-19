@@ -16,4 +16,30 @@ net add vlan 1 ip address 10.1.0.2/24
 net add clag peer sys-mac 44:38:39:BE:EF:AA interface swp1 primary backup-ip 10.10.0.1
 net add interface peerlink.4094 clag args --initDelay 100
 
+net pending
+net commit
 # ISIS config
+sed -i 's/isisd=no/isisd=yes/g' /etc/frr/daemons
+
+cat <<EOF > /etc/frr/frr.conf
+log syslog informational
+!
+router isis leaf2
+  net 49.0001.0000.0000.0012.00
+  hostname dynamic
+!
+interface swp2
+  ip router isis leaf2
+  isis circuit-type level-1-only
+!
+interface swp3
+  ip router isis leaf2
+  isis circuit-type level-1-only
+!
+interface vlan1
+  ip router isis leaf2
+  isis passive
+!
+EOF
+
+reboot
