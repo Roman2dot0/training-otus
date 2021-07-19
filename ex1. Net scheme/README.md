@@ -28,7 +28,7 @@
 
 
 
-![Архитектура сети](https://github.com/Roman2dot0/training-otus/blob/master/ex1/underlay_network.png)
+![Архитектура сети](https://github.com/Roman2dot0/training-otus/blob/master/ex1.%20Net%20scheme/underlay_network.png)
 
 unit | port | IP addresses
 ------------ | ------------- | -----------

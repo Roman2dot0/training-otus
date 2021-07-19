@@ -9,7 +9,7 @@
 
 ## Решенние:
 
-![Архитектура сети](https://github.com/Roman2dot0/training-otus/blob/master/ex2/ospf.png)
+![Архитектура сети](https://github.com/Roman2dot0/training-otus/blob/master/ex2.%20OSPF/ospf.png)
 
 Тут красным выделена area 0 - она объединяет spine. Зёлёным - stub area с номером leaf.
 Соответственно, о полной топологии сети знают только spine, для leaf отдаётся только default route.
