@@ -1,2 +1,2 @@
-TASK = "ex3. IS-IS"
+TASK = "ex4. BGP"
 load File.expand_path("../Vagrantfile_main.rb")
