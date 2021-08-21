@@ -1,2 +1,0 @@
-TASK = "ex4. BGP"
-load File.expand_path("../Vagrantfile_main.rb")

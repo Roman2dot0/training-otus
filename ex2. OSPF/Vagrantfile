@@ -1,2 +1,0 @@
-TASK = "ex2. OSPF"
-load File.expand_path("../Vagrantfile_main.rb")
