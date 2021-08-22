@@ -15,55 +15,19 @@
 
 Архитектура на рисунке, адресация в таблице:
 
-    Для lo используется сеть 172.16.12.0/24 с делением в /32 на хост;
-    Для vpc 10.1.0.0/30.
-
-Сокращения для имен портов
-
-    mspX - main switch port X, порт X на spine в сторону основного коммутатора;
-    lsYpX - leaf switch Y port X, порт X на spine в сторону leaf Y;
-    ssYpX - spine switch Y port X, порт X на leaf в сторону spine Y;
-    clntpX - client port X, порт на leaf в сторону клиента.
-    vpcpX - vpc/mlag/clag port X
-
+    Для lo используется сеть 172.16.0.0/24 с делением в /32 на хост;
+    Везде, кроме клиентов используются unnumbered ip.
 
 
 ![Архитектура сети](https://github.com/Roman2dot0/training-otus/blob/master/ex1.%20Net%20scheme/underlay_network.png)
 
 unit | port | IP addresses
 ------------ | ------------- | -----------
-main sw | bridge port | 10.0.0.100/24
-main sw | lo | 172.16.12.1/32
-spine 1 | lo | 172.16.12.11/32
-spine 1 | ls1p2 | 10.0.1.1/30
-spine 1 | ls2p3 | 10.0.1.13/30
-spine 1 | ls3p4 | 10.0.1.21/30
-spine 1 | msp1 | 10.0.0.1/24
-spine 2 | lo | 172.16.12.12/32
-spine 2 | ls1p2 | 10.0.1.5/30
-spine 2 | ls2p3 | 10.0.1.17/30
-spine 2 | ls3p4 | 10.0.1.25/30
-spine 2 | msp1 | 10.0.0.2/24
-spine 3 | lo | 172.16.12.13/32
-spine 3 | ls4p2 | 10.0.1.9/30
-spine 3 | msp1 | 10.0.0.3/24
-leaf 1 | clntp4 | 10.1.0.1/24
-leaf 1 | lo | 172.16.12.21/32
-leaf 1 | ss1p2 | 10.0.1.2/30
-leaf 1 | ss2p3 | 10.0.1.6./30
-leaf 1 | vpcp1 | 10.10.0.1/30
-leaf 2 | clntp4 | 10.1.0.2/24
-leaf 2 | lo | 172.16.12.22/32
-leaf 2 | ss1p2 | 10.0.1.14/30
-leaf 2 | ss2p3 | 10.0.1.18/30
-leaf 2 | vpcp1 | 10.10.0.2/30
-leaf 3 | clntp3 | 10.2.0.1/24
-leaf 3 | lo | 172.16.12.23/32
-leaf 3 | ss1p1 | 10.0.1.22/30
-leaf 3 | ss2p2 | 10.0.1.26/30
-leaf 4 | clntp2 | 10.3.0.1/24
-leaf 4 | lo | lo 172.16.12.24/32
-leaf 4 | ss3p1 | 10.0.1.10/30
-client 1 | 10.1.0.100/24
-client 2 | 10.2.0.100/24
-client 3 | 10.3.0.100/24
+main sw | lo | 172.16.0.1/32
+spine 1 | lo | 172.16.0.11/32
+spine 2 | lo | 172.16.0.12/32
+spine 3 | lo | 172.16.0.13/32
+leaf 1 | lo | 172.16.0.21/32
+leaf 2 | lo | 172.16.0.22/32
+leaf 3 | lo | 172.16.0.23/32
+leaf 4 | lo | lo 172.16.0.24/32
