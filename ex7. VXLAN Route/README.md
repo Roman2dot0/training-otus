@@ -1,4 +1,4 @@
-![Архитектура сети](https://github.com/Roman2dot0/training-otus/blob/master/ex6.%20VXLAN%20type%202/vxlan_route.png)   
+![Архитектура сети](https://github.com/Roman2dot0/training-otus/blob/master/ex7.%20VXLAN%20Route/vxlan_route.png)   
 В этой работе добавляются следующие ip    
 unit | port | IP addresses
 ------------ | ------------- | -----------
@@ -19,7 +19,8 @@ interface vlan 30
   no shutdown
 
 ip route 0.0.0.0/0 192.168.30.1
-```
+```    
+
 Vlan для маршрутизации на leaf будет vlan 2030, vni 92030, vrf router20to30
 В качестве всех устройств используется cisco nexus 9000v (9.3.8). На клиентах отключается stp для vlan, иначе интерфейсы vlan будут в состоянии down.    
 Настройки лежат в configs. Проверяем, что всё работает    
