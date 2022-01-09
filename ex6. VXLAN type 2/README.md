@@ -1,4 +1,10 @@
-![Архитектура сети](https://github.com/Roman2dot0/training-otus/blob/master/ex6.%20VXLAN%20type%202/vxlan_type2.png)       
+![Архитектура сети](https://github.com/Roman2dot0/training-otus/blob/master/ex6.%20VXLAN%20type%202/vxlan_type2.png)   
+В этой работе добавляются следующие ip    
+unit | port | IP addresses
+------------ | ------------- | -----------
+client 1 | vlan10 | 192.168.0.11/24
+client 2 | vlan10 | 192.168.0.12/24
+ 
 В данной работе нужно настроить простую l2 связность между client01 и client02 посредством evpn. Настройка lacp/vpc не нужна и leaf02 не работает.    
 В качестве всех устройств используется cisco nexus 9000v (9.3.8). На клиентах отключается stp для vlan, иначе интерфейс vlan 10 будет в состоянии down.     
 Настройки лежат в configs. Проверяем, что всё работает    
