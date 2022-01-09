@@ -20,14 +20,32 @@
 
 
 ![Архитектура сети](https://github.com/Roman2dot0/training-otus/blob/master/ex1.%20Net%20scheme/underlay_network.png)
+lo1 - unnumbered ospf
+lo2 - BGP
+lo3 - nve
+
 
 unit | port | IP addresses
 ------------ | ------------- | -----------
-main sw | lo | 172.16.0.1/32
-spine 1 | lo | 172.16.0.11/32
-spine 2 | lo | 172.16.0.12/32
-spine 3 | lo | 172.16.0.13/32
-leaf 1 | lo | 172.16.0.21/32
-leaf 2 | lo | 172.16.0.22/32
-leaf 3 | lo | 172.16.0.23/32
-leaf 4 | lo | lo 172.16.0.24/32
+main sw | lo1 | 172.16.0.1/32
+spine 1 | lo1 | 10.1.1.1/32
+spine 1 | lo2 | 10.2.1.1/32
+spine 2 | lo1 | 10.1.2.1/32
+spine 2 | lo2 | 10.2.2.1/32
+spine 3 | lo1 | 10.1.3.1/32
+spine 3 | lo2 | 10.2.3.1/32
+leaf 1 | lo1 | 10.1.101.1/32
+leaf 1 | lo2 | 10.2.101.1/32
+leaf 1 | lo3 | 172.16.1.1/32
+leaf 2 | lo1 | 10.1.102.1/32
+leaf 2 | lo2 | 10.2.102.1/32
+leaf 2 | lo3 | 172.16.2.1/32
+leaf 3 | lo1 | 10.1.103.1/32
+leaf 3 | lo2 | 10.2.103.1/32
+leaf 3 | lo3 | 172.16.3.1/32
+leaf 4 | lo1 | 10.1.104.1/32
+leaf 4 | lo2 | 10.2.104.1/32
+leaf 4 | lo3 | 172.16.4.1/32
+client 1 | eth1 | 192.168.0.11/24
+client 2 | eth1 | 192.168.0.12/24
+client 3 | eth1 | 192.168.0.13/24
