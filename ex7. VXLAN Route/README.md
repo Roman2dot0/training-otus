@@ -119,17 +119,17 @@ Id    Port          Status Consistency Reason                Active vlans
 Убеждаемся, что vpc настроен и работает    
 
 ```
-client01# ping 192.168.30.12
-PING 192.168.30.12 (192.168.30.12): 56 data bytes
-64 bytes from 192.168.30.12: icmp_seq=0 ttl=252 time=20.07 ms
-64 bytes from 192.168.30.12: icmp_seq=1 ttl=252 time=13.432 ms
-64 bytes from 192.168.30.12: icmp_seq=2 ttl=252 time=15.804 ms
-64 bytes from 192.168.30.12: icmp_seq=3 ttl=252 time=17.055 ms
-64 bytes from 192.168.30.12: icmp_seq=4 ttl=252 time=13.742 ms
+client01# ping 192.168.30.12 source 192.168.20.11
+PING 192.168.30.12 (192.168.30.12) from 192.168.20.11: 56 data bytes
+64 bytes from 192.168.30.12: icmp_seq=0 ttl=252 time=21.158 ms
+64 bytes from 192.168.30.12: icmp_seq=1 ttl=252 time=21.008 ms
+64 bytes from 192.168.30.12: icmp_seq=2 ttl=252 time=13.444 ms
+64 bytes from 192.168.30.12: icmp_seq=3 ttl=252 time=13.498 ms
+64 bytes from 192.168.30.12: icmp_seq=4 ttl=252 time=17.654 ms
 
 --- 192.168.30.12 ping statistics ---
 5 packets transmitted, 5 packets received, 0.00% packet loss
-round-trip min/avg/max = 13.432/16.02/20.07 ms
+round-trip min/avg/max = 13.444/17.352/21.158 ms
 ```
 
 Пинг между клиентами работает
