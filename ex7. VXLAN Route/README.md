@@ -3,7 +3,11 @@
 unit | port | IP addresses
 ------------ | ------------- | -----------
 leaf 1 | vlan20 | 192.168.20.1/24
+leaf 1 | eth1/3 | 10.255.255.1/24
+leaf 1 | lo3 | 172.31.255.1/32 secondary
 leaf 2 | vlan20 | 192.168.20.1/24
+leaf 2 | eth1/3 | 10.255.255.2/24
+leaf 2 | lo3 | 172.31.255.1/32 secondary
 leaf 3 | vlan30 | 192.168.30.1/24
 client 1 | vlan20 | 192.168.20.11/24
 client 2 | vlan30 | 192.168.30.12/24
@@ -21,8 +25,9 @@ interface vlan 30
 ip route 0.0.0.0/0 192.168.30.1
 ```    
 
-Vlan для маршрутизации на leaf будет vlan 2030, vni 92030, vrf router20to30
-В качестве всех устройств используется cisco nexus 9000v (9.3.8). На клиентах отключается stp для vlan, иначе интерфейсы vlan будут в состоянии down.    
+Vlan для маршрутизации на leaf будет vlan 2030, vni 92030, vrf router20to30    
+В качестве всех устройств используется cisco nexus 9000v (9.3.8).    
+На клиентах отключается stp для vlan, иначе интерфейсы vlan будут в состоянии down.        
 Настройки лежат в configs. Проверяем, что всё работает    
 
 
@@ -66,6 +71,52 @@ nve1      92030    n/a               Up    CP   L3 [router20to30]
 
 vni на leaf03    
 
+```
+leaf03# sh nve peers 
+Interface Peer-IP                                 State LearnType Uptime   Router-Mac       
+--------- --------------------------------------  ----- --------- -------- -----------------
+nve1      172.31.255.1                            Up    CP        00:16:10 5005.0000.1b08
+```    
+
+Изменения после настройки vpc и secondary ip для nve    
+    
+```
+leaf02# sh vpc
+Legend:
+                (*) - local vPC is down, forwarding via vPC peer-link
+
+vPC domain id                     : 1   
+Peer status                       : peer adjacency formed ok      
+vPC keep-alive status             : peer is alive                 
+Configuration consistency status  : success 
+Per-vlan consistency status       : success                       
+Type-2 consistency status         : success 
+vPC role                          : secondary                     
+Number of vPCs configured         : 1   
+Peer Gateway                      : Disabled
+Dual-active excluded VLANs        : -
+Graceful Consistency Check        : Enabled
+Auto-recovery status              : Disabled
+Delay-restore status              : Timer is off.(timeout = 30s)
+Delay-restore SVI status          : Timer is off.(timeout = 10s)
+Operational Layer3 Peer-router    : Disabled
+Virtual-peerlink mode             : Disabled
+
+vPC Peer-link status
+---------------------------------------------------------------------
+id    Port   Status Active vlans    
+--    ----   ------ -------------------------------------------------
+1     Po100  up     1,10,20,2030                                                
+         
+
+vPC status
+----------------------------------------------------------------------------
+Id    Port          Status Consistency Reason                Active vlans
+--    ------------  ------ ----------- ------                ---------------
+200   Po200         up     success     success               1,10,20,2030       
+```    
+
+Убеждаемся, что vpc настроен и работает    
 
 ```
 client01# ping 192.168.30.12
