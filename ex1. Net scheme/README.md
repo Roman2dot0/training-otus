@@ -27,6 +27,7 @@ lo3 - nve
 
 unit | port | IP addresses
 ------------ | ------------- | -----------
+mainsw | lo1 | 10.1.0.1/32
 spine 1 | lo1 | 10.1.1.1/32
 spine 1 | lo2 | 10.2.1.1/32
 spine 2 | lo1 | 10.1.2.1/32
