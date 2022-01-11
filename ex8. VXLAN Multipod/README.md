@@ -1,4 +1,4 @@
-![Архитектура сети](https://github.com/Roman2dot0/training-otus/blob/master/ex7.%20VXLAN%20Multipod/vxlan_multipod.png)   
+![Архитектура сети](https://github.com/Roman2dot0/training-otus/blob/master/ex8.%20VXLAN%20Multipod/vxlan_multipod.png)   
 В этой работе добавляются следующие ip    
 unit | port | IP addresses
 ------------ | ------------- | -----------
