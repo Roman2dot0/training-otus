@@ -14,7 +14,7 @@ mainsw выступает тут в 2 ролях:
 
 Специфичные файлы конфигурации вынесены в отдельные директории    
 
-Для всех spine и leaf включен параметр rewrite-evpn-rt-asn, он нужен если route-target задаётся auto, а не в ручную, нужен для корректного переписывания AS:VNI при прохождении через другие AS.    
+Для всех spine и leaf включен параметр ![rewrite-evpn-rt-asn](https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/sw/7-x/command_references/configuration_commands/b_N9K_Config_Commands_703i7x/b_N9K_Config_Commands_703i7x_chapter_010010.html#wp4498893710), он нужен если route-target задаётся auto, а не вручную, нужен для корректного переписывания AS:VNI при прохождении через другие AS. ![Немного документации, искать About Route-Target Auto](https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/sw/7-x/vxlan/configuration/guide/b_Cisco_Nexus_9000_Series_NX-OS_VXLAN_Configuration_Guide_7x/b_Cisco_Nexus_9000_Series_NX-OS_VXLAN_Configuration_Guide_7x_chapter_0100.html)    
 Для всех spine задаются параметры:    
 - ebgp-multihop, т.к в системе будет multihop    
 - route-map в которой ip next-hop unchanged, чтобы не подставлять адрес промежуточного super spine     
